@@ -1,14 +1,60 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.constrain-width-wide {
+  max-width: 600px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[brand="ribena"] {
+  --color1: purple;
+}
+
+[brand="lucozade"] {
+  --color1: orange;
+}
+
+[brand="lrs"] {
+  --color1: yellow;
+}
+
+.constrain-width-wide {
+  background-color: var(--color1, white) !important;
+}
+
+.sticky-theme-picker {
+  position: sticky;
+  top: 0px;
+  padding-top: 3px;
+  background-color: white;
+  z-index: 1;
+}
+
+ion-icon {
+  font-size: 54px;
+  background-color: rgb(230, 230, 230);
+  padding: 10px;
+}
+
+.icon-grid {
+  display: grid;
+  background-color: black;
+  grid-gap: 2px;
+  padding: 2px;
 }
