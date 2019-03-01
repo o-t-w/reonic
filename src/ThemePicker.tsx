@@ -7,18 +7,13 @@ import React, { Fragment, useEffect, useState } from "react";
 //   window.localStorage.setItem("brand", event.target.value);
 // }
 
-function handleComponentPick(event: any) {
-  console.log("please implement this - thanks!");
-}
-
 function ThemePicker(props: any) {
   return (
     <div className="sticky-theme-picker">
       <IonItem>
         <IonLabel>Choose a component</IonLabel>
         <IonSelect
-          value={props.brand}
-          onIonChange={handleComponentPick}
+          onIonChange={event => props.handleComponentPick(event)}
           interface="popover"
           placeholder="Select One"
         >
@@ -31,6 +26,7 @@ function ThemePicker(props: any) {
       <IonItem>
         <IonLabel>Choose a brand</IonLabel>
         <IonSelect
+          value={props.brand}
           onIonChange={event => props.handleBrandChange(event)}
           interface="popover"
           placeholder="Select One"
