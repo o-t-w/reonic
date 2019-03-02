@@ -1,13 +1,14 @@
 import { IonItem, IonLabel, IonSelect, IonSelectOption } from "@ionic/react";
 import React, { Fragment, useEffect, useState } from "react";
 
-// function handleThemePick(event: any) {
+interface Props {
+  brand: string;
+  component: string;
+  handleBrandChange;
+  handleComponentPick;
+}
 
-//   document.body.setAttribute("brand", event.target.value);
-//   window.localStorage.setItem("brand", event.target.value);
-// }
-
-function ThemePicker(props: any) {
+function ThemePicker(props: Props) {
   return (
     <div className="sticky-theme-picker">
       <IonItem>
@@ -30,6 +31,7 @@ function ThemePicker(props: any) {
           onIonChange={event => props.handleBrandChange(event)}
           interface="popover"
           placeholder="Select One"
+          {...(props.component === null ? `disabled="true"` : "")}
         >
           <IonSelectOption value="lrs">LRS</IonSelectOption>
           <IonSelectOption value="ribena">Ribena</IonSelectOption>

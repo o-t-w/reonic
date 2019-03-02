@@ -1,31 +1,48 @@
-import { Link, Route, BrowserRouter as Router } from "react-router-dom";
+import {
+  Link,
+  Redirect,
+  Route,
+  BrowserRouter as Router
+} from "react-router-dom";
 import React, { Component } from "react";
 
-function Index() {
-  return <p>Hello world!</p>;
+function Lrs() {
+  return <h1>LRS</h1>;
 }
 
-function Button() {
-  return <button>CLICK</button>;
+function Ribena() {
+  return <h1>Ribena</h1>;
 }
 
-function Card() {
-  return <h1>CARD!!!</h1>;
+function Lucozade() {
+  return <h1>Lucozade</h1>;
 }
 
-function AppRouter() {
-  return (
-    <Router>
-      <div>
-        <Link to="/">HOME</Link>
-        <Link to="/button">button</Link>
-        <Link to="card">Card</Link>
-        <Route path="/" exact component={Index} />
-        <Route path="/button/" component={Button} />
-        <Route path="/card/" component={Card} />
-      </div>
-    </Router>
-  );
+class AppRouter extends Component<{ brand: string; component: string }> {
+  render() {
+    if (this.props.brand === "ribena") {
+      console.log("ribena!");
+      <Redirect to="/ribena" />;
+    } else if (this.props.brand === "lrs") {
+      console.log("lrs!");
+      <Redirect to="/lrs" />;
+    } else if (this.props.brand === "lucozade") {
+      console.log("lucozade!");
+      <Redirect to="/lucozade" />;
+    }
+    return (
+      <Router>
+        <div>
+          {/* <Link to="/">HOME</Link>
+          <Link to="/button">button</Link>
+          <Link to="card">Card</Link> */}
+          <Route path="/lrs" exact component={Lrs} />
+          <Route path="/lucozade/" component={Lucozade} />
+          <Route path="/ribena/" component={Ribena} />
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default AppRouter;
