@@ -14,6 +14,21 @@ class DisplayComponent extends Component<any> {
     document.body.setAttribute("brand", match.params.brand);
   };
 
+  componentDidUpdate = prevProps => {
+    if (
+      this.props.brand !== prevProps.brand ||
+      this.props.component !== prevProps.component
+    ) {
+      const match = this.props.match;
+      console.log("The display component did mount!");
+      this.props.setBrandandComponentState(
+        match.params.brand,
+        match.params.component
+      );
+      document.body.setAttribute("brand", match.params.brand);
+    }
+  };
+
   render() {
     switch (this.props.match.params.component) {
       case "button":
