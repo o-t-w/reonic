@@ -27,11 +27,9 @@ function ThemePicker(props: Props) {
       <IonItem>
         <IonLabel>Choose a brand</IonLabel>
         <IonSelect
-          value={props.brand}
           onIonChange={event => props.handleBrandChange(event)}
           interface="popover"
           placeholder="Select One"
-          {...(props.component === null ? `disabled="true"` : "")}
         >
           <IonSelectOption value="lrs">LRS</IonSelectOption>
           <IonSelectOption value="ribena">Ribena</IonSelectOption>

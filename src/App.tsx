@@ -2,34 +2,15 @@ import "@ionic/core/css/core.css";
 import "@ionic/core/css/ionic.bundle.css";
 
 import { IonApp, IonContent } from "@ionic/react";
-import {
-  Link,
-  Redirect,
-  Route,
-  BrowserRouter as Router,
-  withRouter
-} from "react-router-dom";
 import React, { Component } from "react";
+import { Route, BrowserRouter as Router, withRouter } from "react-router-dom";
 
-import Button from "./showcase/Button";
-import Card from "./showcase/Card";
+import DisplayComponent from "./DisplayComponent";
 import ThemePicker from "./ThemePicker";
 
 interface appState {
   brand: string;
   component: string;
-}
-
-function Lrs() {
-  return <h1>LRS</h1>;
-}
-
-function Ribena() {
-  return <h1>Ribena</h1>;
-}
-
-function Lucozade() {
-  return <h1>Lucozade</h1>;
 }
 
 class App extends Component<any, appState> {
@@ -40,54 +21,31 @@ class App extends Component<any, appState> {
       component: null
     };
     this.handleComponentPick = this.handleComponentPick.bind(this);
+    this.handleBrandChange = this.handleBrandChange.bind(this);
   }
 
-  componentDidMount() {
-    const match = this.props.match;
-    console.log(match.params.component);
-    this.setState({ component: match.params.component });
-    let brand = window.localStorage.getItem("brand");
-    if (brand !== null) {
-      document.body.setAttribute("brand", brand);
-      this.setState({
-        brand: brand
-      });
-    }
-  }
-
-  setComponent(component) {
+  setBrandandComponentState = (brand, component) => {
     this.setState({
+      brand: brand,
       component: component
     });
-  }
+  };
 
   handleComponentPick(event: any) {
     const component = event.target.value;
-    this.setState({
-      component: component
-    });
-    this.props.history.push(`/${component}`);
+    this.props.history.push(`/${component}/${this.state.brand}`);
   }
 
   handleBrandChange = (event: any) => {
     if (event.target instanceof HTMLElement) {
       const brand = event.target.value;
-      document.body.setAttribute("brand", brand);
-      window.localStorage.setItem("brand", brand);
-      this.setState({
-        brand: brand
-      });
-      this.props.history.push(`/${brand}`);
+      this.props.history.push(`/${this.state.component}/${brand}`);
     }
   };
 
   render() {
     return (
       <IonApp>
-        {/* <Route path="/lrs/" component={Lrs} />
-        <Route path="/lucozade/" component={Lucozade} />
-        <Route path="/ribena/" component={Ribena} /> */}
-
         <IonContent>
           <div className="constrain-width-wide center">
             <ThemePicker
@@ -97,10 +55,18 @@ class App extends Component<any, appState> {
               handleComponentPick={this.handleComponentPick}
             />
             <div className="place-to-put-currently-selected-component">
-              {this.state.component ? <h1>{this.state.component}</h1> : ""}
-              {/* <ComponentShowcase setComponent={this.setComponent} /> */}
-              <Route path="/button" component={Button} />
-              <Route path="/card" component={Card} />
+              {/* {this.state.brand ? <h1>{this.state.brand}</h1> : ""} */}
+              {/* <DisplayComponent component={this.state.component} /> */}
+
+              <Route
+                path="/:component/:brand/"
+                render={props => (
+                  <DisplayComponent
+                    {...props}
+                    setBrandandComponentState={this.setBrandandComponentState}
+                  />
+                )}
+              />
             </div>
           </div>
         </IonContent>
