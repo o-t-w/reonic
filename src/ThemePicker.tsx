@@ -1,5 +1,6 @@
 import { IonItem, IonLabel, IonSelect, IonSelectOption } from "@ionic/react";
-import React, { Fragment, useEffect, useState } from "react";
+
+import React from "react";
 
 interface Props {
   brand: string;
@@ -14,6 +15,7 @@ function ThemePicker(props: Props) {
       <IonItem>
         <IonLabel>Choose a component</IonLabel>
         <IonSelect
+          value={props.component}
           onIonChange={event => props.handleComponentPick(event)}
           interface="popover"
           placeholder="Select One"
@@ -26,6 +28,7 @@ function ThemePicker(props: Props) {
       <IonItem>
         <IonLabel>Choose a brand</IonLabel>
         <IonSelect
+          value={props.brand}
           onIonChange={event => props.handleBrandChange(event)}
           interface="popover"
           placeholder="Select One"

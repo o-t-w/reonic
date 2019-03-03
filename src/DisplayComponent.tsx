@@ -10,7 +10,6 @@ class DisplayComponent extends Component<any> {
       match.params.brand,
       match.params.component
     );
-    document.body.setAttribute("brand", match.params.brand);
   };
 
   componentDidUpdate = prevProps => {
@@ -23,7 +22,6 @@ class DisplayComponent extends Component<any> {
         match.params.brand,
         match.params.component
       );
-      document.body.setAttribute("brand", match.params.brand);
     }
   };
 

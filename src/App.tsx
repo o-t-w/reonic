@@ -47,7 +47,7 @@ class App extends Component<any, appState> {
     return (
       <IonApp>
         <IonContent>
-          <div className="constrain-width-wide center">
+          <div className={"constrain-width-wide center " + this.state.brand}>
             <ThemePicker
               component={this.state.component}
               brand={this.state.brand}
