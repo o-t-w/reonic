@@ -3,10 +3,10 @@ import { IonItem, IonLabel, IonSelect, IonSelectOption } from "@ionic/react";
 import React from "react";
 
 interface Props {
-  brand: string;
-  component: string;
   handleBrandChange;
   handleComponentPick;
+  component: string;
+  brand: string;
 }
 
 function ThemePicker(props: Props) {
