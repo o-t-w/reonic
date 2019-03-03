@@ -58,3 +58,12 @@ ion-icon {
   grid-gap: 2px;
   padding: 2px;
 }
+
+.currently-selected-component {
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

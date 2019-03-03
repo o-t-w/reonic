@@ -14,8 +14,6 @@ class DisplayComponent extends Component<any> {
   };
 
   componentDidUpdate = prevProps => {
-    console.log("component did update");
-    console.log(this.props.brand);
     if (
       this.props.match.params.brand !== prevProps.match.params.brand ||
       this.props.match.params.component !== prevProps.match.params.component

@@ -54,9 +54,17 @@ class App extends Component<any, appState> {
               handleBrandChange={this.handleBrandChange}
               handleComponentPick={this.handleComponentPick}
             />
-            <div className="place-to-put-currently-selected-component">
-              {this.state.brand ? <h1>{this.state.brand}</h1> : ""}
-              {this.state.component ? <h2>{this.state.component}</h2> : ""}
+            <div className="currently-selected-component">
+              {/* {this.state.brand !== null ? (
+                <h1>{this.state.brand}</h1>
+              ) : (
+                <h2>No brand selected</h2>
+              )}
+              {this.state.component !== null ? (
+                <h2>{this.state.component}</h2>
+              ) : (
+                <h2>No component selected</h2>
+              )} */}
 
               <Route
                 path="/:component/:brand/"
