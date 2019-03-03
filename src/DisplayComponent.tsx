@@ -6,7 +6,6 @@ import Card from "./showcase/Card";
 class DisplayComponent extends Component<any> {
   componentDidMount = () => {
     const match = this.props.match;
-    console.log("The display component did mount!");
     this.props.setBrandandComponentState(
       match.params.brand,
       match.params.component
@@ -15,12 +14,13 @@ class DisplayComponent extends Component<any> {
   };
 
   componentDidUpdate = prevProps => {
+    console.log("component did update");
+    console.log(this.props.brand);
     if (
-      this.props.brand !== prevProps.brand ||
-      this.props.component !== prevProps.component
+      this.props.match.params.brand !== prevProps.match.params.brand ||
+      this.props.match.params.component !== prevProps.match.params.component
     ) {
       const match = this.props.match;
-      console.log("The display component did mount!");
       this.props.setBrandandComponentState(
         match.params.brand,
         match.params.component
