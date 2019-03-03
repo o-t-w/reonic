@@ -12,13 +12,13 @@ import ThemePicker from "./ThemePicker";
 class DisplayComponent extends Component<RouteComponentProps> {
   handleComponentPick(event: any) {
     const component = event.target.value;
-    this.props.history.push(`/${component}/${this.props.match.params.brand}`);
+    this.props.history.push(`/${this.props.match.params.brand}/${component}`);
   }
 
   handleBrandChange = (event: any) => {
     if (event.target instanceof HTMLElement) {
       const brand = event.target.value;
-      this.props.history.push(`/${this.props.match.params.component}/${brand}`);
+      this.props.history.push(`/${brand}/${this.props.match.params.component}`);
     }
   };
   render = () => {
