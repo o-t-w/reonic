@@ -23,15 +23,15 @@ code {
 }
 
 [brand="ribena"] {
-  --color1: purple;
+  --ion-color-primary: purple;
 }
 
 [brand="lucozade"] {
-  --color1: orange;
+  --ion-color-primary: orange;
 }
 
 [brand="lrs"] {
-  --color1: yellow;
+  --ion-color-primary: #00bcd4;
 }
 
 .constrain-width-wide {

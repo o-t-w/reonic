@@ -55,8 +55,8 @@ class App extends Component<any, appState> {
               handleComponentPick={this.handleComponentPick}
             />
             <div className="place-to-put-currently-selected-component">
-              {/* {this.state.brand ? <h1>{this.state.brand}</h1> : ""} */}
-              {/* <DisplayComponent component={this.state.component} /> */}
+              {this.state.brand ? <h1>{this.state.brand}</h1> : ""}
+              {this.state.component ? <h2>{this.state.component}</h2> : ""}
 
               <Route
                 path="/:component/:brand/"

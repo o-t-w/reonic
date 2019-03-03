@@ -10,7 +10,7 @@ import React from "react";
 
 function Card() {
   return (
-    <IonCard>
+    <IonCard color="primary">
       <IonCardHeader>
         <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
         <IonCardTitle>Card Title</IonCardTitle>
