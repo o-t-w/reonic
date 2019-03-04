@@ -9,7 +9,14 @@ import Button from "./showcase/Button";
 import Card from "./showcase/Card";
 import ThemePicker from "./ThemePicker";
 
-class DisplayComponent extends Component<RouteComponentProps> {
+interface MyProps {
+  brand: string;
+  component: string;
+}
+
+type Props = RouteComponentProps<MyProps>; // Stupid Typescript stuff
+
+class DisplayComponent extends Component<Props> {
   handleComponentPick(event: any) {
     const component = event.target.value;
     this.props.history.push(`/${this.props.match.params.brand}/${component}`);
@@ -23,11 +30,7 @@ class DisplayComponent extends Component<RouteComponentProps> {
   };
   render = () => {
     return (
-      <div
-        className={
-          "constrain-width-wide center " + this.props.match.params.brand
-        }
-      >
+      <div className={"constrain-width-wide center "}>
         <ThemePicker
           component={this.props.match.params.component}
           brand={this.props.match.params.brand}

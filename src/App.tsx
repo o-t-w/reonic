@@ -18,7 +18,7 @@ class App extends Component<any> {
         <IonContent>
           <h1>something</h1>
           <Route
-            path="/:brand"
+            path="/:brand/:component"
             render={props => <DisplayComponent {...props} />}
           />
         </IonContent>
