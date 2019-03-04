@@ -48,19 +48,24 @@ code {
 
 ion-icon {
   font-size: 54px;
-  background-color: rgb(230, 230, 230);
-  padding: 10px;
 }
 
 ion-list {
   width: 400px;
 }
 
+.ion-slides {
+  height: 70vh;
+}
+
 .icon-grid {
+  color: var(--ion-color-primary);
   display: grid;
-  background-color: black;
-  grid-gap: 2px;
-  padding: 2px;
+  grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
+  max-width: 100%;
+  width: 500px;
+  padding: 10px;
+  grid-gap: 10px;
 }
 
 .currently-selected-component {
