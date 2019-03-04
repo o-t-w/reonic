@@ -17,10 +17,10 @@ interface MyProps {
 type Props = RouteComponentProps<MyProps>; // Stupid Typescript stuff
 
 class DisplayComponent extends Component<Props> {
-  handleComponentPick(event: any) {
+  handleComponentPick = (event: any) => {
     const component = event.target.value;
     this.props.history.push(`/${this.props.match.params.brand}/${component}`);
-  }
+  };
 
   handleBrandChange = (event: any) => {
     if (event.target instanceof HTMLElement) {
@@ -28,21 +28,26 @@ class DisplayComponent extends Component<Props> {
       this.props.history.push(`/${brand}/${this.props.match.params.component}`);
     }
   };
-  render = () => {
+  render() {
     return (
-      <div className={"constrain-width-wide center "}>
+      <div
+        className={
+          "constrain-width-wide center " + this.props.match.params.brand
+        }
+      >
         <ThemePicker
           component={this.props.match.params.component}
           brand={this.props.match.params.brand}
           handleBrandChange={this.handleBrandChange}
           handleComponentPick={this.handleComponentPick}
         />
-        <div className="currently-selected-component" />
-        <Route path="/:brand/button" component={Button} />
-        <Route path="/:brand/card" component={Card} />
+        <div className="currently-selected-component">
+          <Route path="/:brand/button" component={Button} />
+          <Route path="/:brand/card" component={Card} />
+        </div>
       </div>
     );
-  };
+  }
 }
 
 export default DisplayComponent;

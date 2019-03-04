@@ -7,13 +7,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
-// window.addEventListener("load", function() {
-//   let brand = window.localStorage.getItem("brand");
-//   if (brand !== null) {
-//     document.body.setAttribute("brand", brand);
-//   }
-// });
-
 ReactDOM.render(
   <Router>
     <App />
