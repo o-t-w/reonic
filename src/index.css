@@ -52,6 +52,10 @@ ion-icon {
   padding: 10px;
 }
 
+ion-list {
+  width: 400px;
+}
+
 .icon-grid {
   display: grid;
   background-color: black;

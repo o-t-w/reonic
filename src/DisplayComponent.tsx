@@ -7,6 +7,7 @@ import {
 
 import Button from "./showcase/Button";
 import Card from "./showcase/Card";
+import Radio from "./showcase/Radio";
 import ThemePicker from "./ThemePicker";
 
 interface MyProps {
@@ -44,6 +45,7 @@ class DisplayComponent extends Component<Props> {
         <div className="currently-selected-component">
           <Route path="/:brand/button" component={Button} />
           <Route path="/:brand/card" component={Card} />
+          <Route path="/:brand/radio" component={Radio} />
         </div>
       </div>
     );

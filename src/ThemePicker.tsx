@@ -22,6 +22,7 @@ function ThemePicker(props: Props) {
         >
           <IonSelectOption value="button">Button</IonSelectOption>
           <IonSelectOption value="card">Card</IonSelectOption>
+          <IonSelectOption value="radio">Radio</IonSelectOption>
         </IonSelect>
       </IonItem>
 
