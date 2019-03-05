@@ -2,7 +2,7 @@ import "@ionic/core/css/core.css";
 import "@ionic/core/css/ionic.bundle.css";
 
 import { IonApp, IonContent } from "@ionic/react";
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {
   Route,
   BrowserRouter as Router,
@@ -11,7 +11,12 @@ import {
 } from "react-router-dom";
 
 import BrandRoute from "./BrandRoute";
+import Button from "./showcase/Button";
+import Card from "./showcase/Card";
 import DisplayComponent from "./BrandRoute";
+import Icons from "./showcase/Icons";
+import Radio from "./showcase/Radio";
+import Slides from "./showcase/Slides";
 import ThemePicker from "./ThemePicker";
 
 class App extends Component<any> {
@@ -19,47 +24,33 @@ class App extends Component<any> {
     super(props);
   }
 
-  handleComponentPick = (event: any) => {
-    console.log(event.target.value);
-    const component = event.target.value;
-    this.props.history.push(`/${this.props.match.params.brand}/${component}`);
-  };
-
-  handleBrandChange = (event: any) => {
-    if (event.target instanceof HTMLElement) {
-      const brand = event.target.value;
-      this.props.history.push(`/${brand}/${this.props.match.params.component}`);
-    }
-  };
-
   render() {
     return (
       <IonApp>
         <IonContent>
           <Route
-            exact
-            path="/"
+            path="/:brand?/:component?"
             render={props => (
-              <ThemePicker
-                handleBrandChange={this.handleBrandChange}
-                handleComponentPick={this.handleComponentPick}
-                {...props}
-              />
-            )}
-          />
-          <Route
-            path="/:brand"
-            render={props => (
-              <div>
-                <ThemePicker
-                  component={this.props.match.params.component}
-                  brand={this.props.match.params.brand}
-                  handleBrandChange={this.handleBrandChange}
-                  handleComponentPick={this.handleComponentPick}
-                  {...props}
-                />
-                <BrandRoute {...props} />
-              </div>
+              <Fragment>
+                <ThemePicker {...props} />
+                <div
+                  className={
+                    "constrain-width-wide center " + props.match.params.brand
+                  }
+                >
+                  <div className="currently-selected-component">
+                    <Route path="/:brand/button" component={Button} />
+                    <Route path="/:brand/card" component={Card} />
+                    <Route path="/:brand/radio" component={Radio} />
+                    <Route path="/:brand/slides" component={Slides} />
+                    <Route path="/:brand/icons" component={Icons} />
+                    <Route
+                      path="/:brand/undefined"
+                      render={() => <p>please select a component</p>}
+                    />
+                  </div>
+                </div>
+              </Fragment>
             )}
           />
         </IonContent>
@@ -68,4 +59,4 @@ class App extends Component<any> {
   }
 }
 
-export default withRouter(App);
+export default App;

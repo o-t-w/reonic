@@ -19,6 +19,10 @@ function DisplayComponent() {
       <Route path="/:brand/radio" component={Radio} />
       <Route path="/:brand/slides" component={Slides} />
       <Route path="/:brand/icons" component={Icons} />
+      <Route
+        path="/:brand/undefined"
+        render={() => <p>please select a component</p>}
+      />
     </div>
   );
 }

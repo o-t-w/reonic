@@ -325,7 +325,7 @@ function Icons() {
   return (
     <div className="icon-grid">
       {iconArray.map(icon => (
-        <IonIcon name={icon} />
+        <IonIcon key={icon} name={icon} />
       ))}
     </div>
   );
