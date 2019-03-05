@@ -10,24 +10,8 @@ interface MyProps {
 
 type Props = RouteComponentProps<MyProps>; // Stupid Typescript stuff
 
-// interface MoreProps {
-//   handleBrandChange;
-//   handleComponentPick;
-// }
-
 class ThemePicker extends Component<Props> {
   handleComponentPick = (event: any) => {
-    console.log(event.target.value);
-    // console.log(event.target.value);
-    // const URLPathArray = window.location.pathname.split("/");
-    // let brand;
-    // if (URLPathArray[1]) {
-    //   brand = URLPathArray[1];
-    // } else {
-    //   brand = "unselected";
-    // }
-    // const component = event.target.value;
-    // this.props.history.push(`/${brand}/${component}`);
     this.props.history.push(
       `/${
         this.props.match.params.brand
@@ -38,17 +22,6 @@ class ThemePicker extends Component<Props> {
   };
 
   handleBrandChange = (event: any) => {
-    console.log(event.target.value);
-    // if (event.target instanceof HTMLElement) {
-    //   const URLPathArray = window.location.pathname.split("/");
-    //   let component;
-    //   if (URLPathArray[2]) {
-    //     component = URLPathArray[2];
-    //   } else {
-    //     component = "unselected";
-    //   }
-    //   const brand = event.target.value;
-    //   this.props.history.push(`/${brand}/${component}`);
     this.props.history.push(
       `/${event.target.value}/${
         this.props.match.params.component
