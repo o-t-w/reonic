@@ -50,10 +50,6 @@ ion-icon {
   font-size: 54px;
 }
 
-ion-list {
-  width: 400px;
-}
-
 .ion-slides {
   height: 70vh;
 }
@@ -75,4 +71,9 @@ ion-list {
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.max-width-400 {
+  width: 400px;
+  max-width: 100%;
 }
