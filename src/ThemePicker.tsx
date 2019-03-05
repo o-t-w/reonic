@@ -5,8 +5,8 @@ import React from "react";
 interface Props {
   handleBrandChange;
   handleComponentPick;
-  component: string;
-  brand: string;
+  component?: string;
+  brand?: string;
 }
 
 function ThemePicker(props: Props) {
