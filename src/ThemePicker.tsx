@@ -12,6 +12,9 @@ type Props = RouteComponentProps<MyProps>; // Stupid Typescript stuff
 
 class ThemePicker extends Component<Props> {
   handleComponentPick = (event: any) => {
+    if (event.detail.value === this.props.match.params.component) {
+      return;
+    }
     this.props.history.push(
       `/${
         this.props.match.params.brand
@@ -22,6 +25,9 @@ class ThemePicker extends Component<Props> {
   };
 
   handleBrandChange = (event: any) => {
+    if (event.detail.value === this.props.match.params.brand) {
+      return;
+    }
     this.props.history.push(
       `/${event.target.value}/${
         this.props.match.params.component
